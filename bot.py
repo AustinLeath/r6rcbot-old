@@ -20,12 +20,18 @@ async def ping(ctx):
 @bot.command(pass_context=True)
 async def ding(ctx):
         await bot.say("Dong!")
-        print("The user has issued the command !ping")
+        print("The user has issued the command !ding")
 
 
 @bot.command(pass_context=True)
 async def ring(ctx):
         await bot.say("Rong!")
-        print("The user has issued the command !ping")
+        print("The user has issued the command !ring")
+
+@bot.command(pass_context=True)
+async def math(ctx):
+        await bot.say("```YO I AM SO BLOCKED RN```")
+        print("The user has issued the command !math")
+
 
 bot.run("NDM0NDMyOTczMzYyOTU0MjQx.DbZsFg.YBXSYlhU0pICJgiCv1smjhuefLc")
