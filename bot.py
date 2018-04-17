@@ -23,7 +23,7 @@ async def ping(ctx):
 
 @bot.command(pass_context=True)
 async def rcs(ctx):
-        await bot.say("RILEIGH :Heart:")
+        await bot.say("RILEIGH :heart:")
         print("The user has issued the command !rcs")
 
 
