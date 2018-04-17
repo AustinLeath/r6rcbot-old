@@ -28,16 +28,6 @@ async def rcs(ctx):
 
 
 @bot.command(pass_context=True)
-async def info(ctx, user: discord.Member):
-        await bot.say("Your username is: {}" .format(user.name))
-        await bot.say("The users ID is: {}" .format(user.id))
-        await bot.say("The users status is: {}" .format(user.status))
-        await bot.say("The users highest role is: {}" .format(user.top_role))
-        await bot.say("The user specified joined this server at: {}" .format(user.joined_at))
-        print("The user has issued the command !info")
-
-
-@bot.command(pass_context=True)
 async def math(ctx):
         await bot.say("")
         await bot.say(a + b + c)
@@ -51,6 +41,19 @@ async def about(ctx):
         embed.set_author(name="Austin Leath AKA - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !about")
+
+@bot.command(pass_context=True)
+async def info(ctx, user: discord.Member):
+        embed = discord.Embed(title="{}'s info" .format(user.name) color=0x00fff00)
+        embed.set_footer(text="v1.0.0")
+        embed.add_field(name="Name", value="user.name")
+        embed.add_field(name="Status", value="user.status")
+        embed.add_field(name="ID", value="user.id")
+        embed.add_field(name="Role", value="user.role")
+        embed.add_field(name="Joined", value="user.joined_at")
+        embed.set_thumbnail(url-user.avatar_url)
+        await bot.say(embed=embed)
+        print("The user has issued the command !info")
 
 
 bot.run("NDM0NDMyOTczMzYyOTU0MjQx.DbZsFg.YBXSYlhU0pICJgiCv1smjhuefLc")
