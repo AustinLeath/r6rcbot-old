@@ -24,7 +24,7 @@ async def ping(ctx):
 
 @bot.command(pass_context=True)
 async def math(ctx):
-        await bot.say("```YO I AM SO BLOCKED RN```" + a + b + c)
+        await bot.say("```YO I AM SO BLOCKED RN```" + (a + b + c))
         print("The user has issued the command !math")
 
 
