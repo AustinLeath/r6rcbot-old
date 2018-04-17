@@ -6,6 +6,7 @@ import asyncio
 a = 2
 b = 2
 c = 2
+d = a + b + c
 
 bot = commands.Bot(command_prefix="!")
 
@@ -30,7 +31,7 @@ async def rcs(ctx):
 @bot.command(pass_context=True)
 async def math(ctx):
         await bot.say("This command adds three variables together which returns a sum")
-        await bot.say(a + b + c)
+        await bot.say()
         print("The user has issued the command !math")
 
 
@@ -44,7 +45,7 @@ async def about(ctx):
         print("The user has issued the command !about")
 
 @bot.command(pass_context=True)
-async def info(ctx, user: discord.Member):
+async def info(ctx):
         embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
         embed.set_footer(text="v1.0.0")
         embed.add_field(name="Name", value="ghjk", inline=True)
