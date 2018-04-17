@@ -7,15 +7,13 @@ a = 2
 b = 2
 c = 2
 
-
 bot = commands.Bot(command_prefix="!")
-
 
 @bot.event
 async def on_ready():
         print("BOT IS READY")
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
-        await bot.change_presence(game=discord.Game(name='something goes here'))
+        await bot.change_presence(game=discord.Game(name='try !help to see all commands'))
 
 
 @bot.command(pass_context=True)
@@ -42,10 +40,9 @@ async def math(ctx):
 
 @bot.command(pass_context=True)
 async def embed(ctx):
-        embed = discord.Embed(title="test title", description="TEST DESC", color=0x00fff00)
-        embed.set_footer(text="TEST FOOTER")
-        embed.set_author(name="TEST AUTHOR")
-        embed.add_field(name="This is a field", value="no it isnt", inline=True)
+        embed = discord.Embed(title="ABOUT THE AUTHOR", color=0x00fff00)
+        embed.set_footer(text="v1.0.0")
+        embed.set_author(name="Austin Leath AKA - @Game-King#0519")
         await bot.say(embed=embed)
 
 
