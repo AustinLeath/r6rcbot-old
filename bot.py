@@ -47,7 +47,7 @@ async def math(ctx):
 async def about(ctx):
         embed = discord.Embed(title="About The Author", color=0x00fff00)
         embed.set_footer(text="v1.0.0")
-        embed.set_field(field="Austin is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com")
+        embed.add_field(field="Austin is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com")
         embed.set_author(name="Austin Leath AKA - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !about")
