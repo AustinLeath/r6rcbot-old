@@ -44,7 +44,7 @@ async def about(ctx):
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
-        embed = discord.Embed(title="{}'s info" .format(user.name) color=0x00fff00)
+        embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
         embed.set_footer(text="v1.0.0")
         embed.add_field(name="Name", value="user.name")
         embed.add_field(name="Status", value="user.status")
