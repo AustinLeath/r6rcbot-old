@@ -12,14 +12,10 @@ bot = commands.Bot(command_prefix="!")
 
 
 @bot.event
-async def wait_until_login():
-    await client.change_presence(game=discord.Game(name='something goes here'))
-
-@bot.event
 async def on_ready():
         print("BOT IS READY")
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
-        await change_presence(*, game=gmae, status=game, afk=False)
+        await client.change_presence(game=discord.Game(name='something goes here'))
 
 
 @bot.command(pass_context=True)
@@ -48,7 +44,7 @@ async def math(ctx):
 async def embed(ctx):
         embed = discord.Embed(title="test title", description="TEST DESC", color=0x00fff00)
         embed.set_footer(text="TEST FOOTER")
-        embed.set_author(text="TEST AUTHOR")
+        embed.set_author(name="TEST AUTHOR")
         embed.add_field(name="This is a field", value="no it isnt", inline=True)
         await bot.say(embed=embed)
 
