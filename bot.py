@@ -3,12 +3,17 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 
+a = 2
+b = 2
+c = 2
+
+
 bot = commands.Bot(command_prefix="!")
 
 @bot.event
 async def on_ready():
         print("BOT IS READY")
-        print("TIME TO BOOL MY GUY")
+        print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
 
 
 @bot.command(pass_context=True)
@@ -18,19 +23,8 @@ async def ping(ctx):
 
 
 @bot.command(pass_context=True)
-async def ding(ctx):
-        await bot.say("Dong!")
-        print("The user has issued the command !ding")
-
-
-@bot.command(pass_context=True)
-async def ring(ctx):
-        await bot.say("Rong!")
-        print("The user has issued the command !ring")
-
-@bot.command(pass_context=True)
 async def math(ctx):
-        await bot.say("```YO I AM SO BLOCKED RN```")
+        await bot.say("```YO I AM SO BLOCKED RN```" + a + b + c)
         print("The user has issued the command !math")
 
 
