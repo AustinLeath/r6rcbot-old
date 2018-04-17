@@ -13,7 +13,7 @@ bot = commands.Bot(command_prefix="!")
 async def on_ready():
         print("BOT IS READY")
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
-        await bot.change_presence(game=discord.Game(name='try !help to see all commands'))
+        await bot.change_presence(game=discord.Game(name='type "!help"'))
 
 
 @bot.command(pass_context=True)
@@ -39,16 +39,18 @@ async def info(ctx, user: discord.Member):
 
 @bot.command(pass_context=True)
 async def math(ctx):
-        await bot.say("```YO I AM SO BLOCKED RN```")
+        await bot.say("")
         await bot.say(a + b + c)
         print("The user has issued the command !math")
 
 @bot.command(pass_context=True)
-async def embed(ctx):
-        embed = discord.Embed(title="ABOUT THE AUTHOR", color=0x00fff00)
+async def about(ctx):
+        embed = discord.Embed(title="About The Author", color=0x00fff00)
         embed.set_footer(text="v1.0.0")
+        embed.set_field(field="Austin is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com")
         embed.set_author(name="Austin Leath AKA - @Game-King#0519")
         await bot.say(embed=embed)
+        print("The user has issued the command !about")
 
 
 bot.run("NDM0NDMyOTczMzYyOTU0MjQx.DbZsFg.YBXSYlhU0pICJgiCv1smjhuefLc")
