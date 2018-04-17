@@ -19,6 +19,7 @@ async def wait_until_login():
 async def on_ready():
         print("BOT IS READY")
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
+        await change_presence(*, game=gmae, status=game, afk=False)
 
 
 @bot.command(pass_context=True)
@@ -48,7 +49,7 @@ async def embed(ctx):
         embed = discord.Embed(title="test title", description="TEST DESC", color=0x00fff00)
         embed.set_footer(text="TEST FOOTER")
         embed.set_author(text="TEST AUTHOR")
-        embed.add_field(name="This is a field", value="no it isnt", inline="True")
+        embed.add_field(name="This is a field", value="no it isnt", inline=True)
         await bot.say(embed=embed)
 
 
