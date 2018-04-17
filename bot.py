@@ -15,7 +15,7 @@ bot = commands.Bot(command_prefix="!")
 async def on_ready():
         print("BOT IS READY")
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
-        await client.change_presence(game=discord.Game(name='something goes here'))
+        await bot.change_presence(game=discord.Game(name='something goes here'))
 
 
 @bot.command(pass_context=True)
