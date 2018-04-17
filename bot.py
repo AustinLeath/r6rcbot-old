@@ -14,8 +14,6 @@ async def on_ready():
         print("BOT IS READY")
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
         await bot.change_presence(game=discord.Game(name='type "!help"'))
-        await bot.remove_command('help')
-
 
 @bot.command(pass_context=True)
 async def ping(ctx):
