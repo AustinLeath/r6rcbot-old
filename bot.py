@@ -43,5 +43,13 @@ async def math(ctx):
         await bot.say(a + b + c)
         print("The user has issued the command !math")
 
+@bot.command(pass_context=True)
+async def embed(ctx):
+        embed = discord.Embed(title="test title", description="TEST DESC", color=0x00fff00)
+        embed.set_footer(text="TEST FOOTER")
+        embed.set_author(text="TEST AUTHOR")
+        embed.add_field(name="This is a field", value="no it isnt", inline="True")
+        await bot.say(embed=embed)
+
 
 bot.run("NDM0NDMyOTczMzYyOTU0MjQx.DbZsFg.YBXSYlhU0pICJgiCv1smjhuefLc")
