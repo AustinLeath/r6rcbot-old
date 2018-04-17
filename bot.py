@@ -46,11 +46,11 @@ async def about(ctx):
 async def info(ctx, user: discord.Member):
         embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
         embed.set_footer(text="v1.0.0")
-        embed.add_field(name="Name", value="user.name", inline=True)
-        embed.add_field(name="Status", value="user.status", inline=True)
-        embed.add_field(name="ID", value="user.id", inline=True)
-        embed.add_field(name="Role", value="user.role", inline=True)
-        embed.add_field(name="Joined", value="user.joined_at", inline=True)
+        embed.add_field(name="Name", value=user.name, inline=True)
+        embed.add_field(name="Status", value=user.status, inline=True)
+        embed.add_field(name="ID", value=user.id, inline=True)
+        embed.add_field(name="Role", value=user.role, inline=True)
+        embed.add_field(name="Joined", value=user.joined_at, inline=True)
         await bot.say(embed=embed)
         print("The user has issued the command !info")
 
