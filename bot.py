@@ -28,8 +28,8 @@ async def info(ctx, user: discord.Member):
         await bot.say("The users ID is: " .format(user.id))
         await bot.say("The users status is: " .format(user.status))
         await bot.say("The users highest role is: " .format(user.top_role))
-        await bot.say("The user specified joined this server at: ") .format(user.joined_at))
-        print("The user has issued the command !ping")
+        await bot.say("The user specified joined this server at: " .format(user.joined_at))
+        print("The user has issued the command !info")
 
 
 @bot.command(pass_context=True)
