@@ -10,6 +10,11 @@ c = 2
 
 bot = commands.Bot(command_prefix="!")
 
+
+@bot.event
+async def wait_until_login():
+    await client.change_presence(game=discord.Game(name='something goes here'))
+
 @bot.event
 async def on_ready():
         print("BOT IS READY")
