@@ -14,12 +14,20 @@ async def on_ready():
         print("BOT IS READY")
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
         await bot.change_presence(game=discord.Game(name='type "!help"'))
+        await bot.remove_command('help')
 
 
 @bot.command(pass_context=True)
 async def ping(ctx):
         await bot.say("Pong!")
         print("The user has issued the command !ping")
+
+
+@bot.command(pass_context=True)
+async def help(ctx):
+        await bot.say("FUTURE HELP COMMAND")
+        print("The user has issued the command !help")
+
 
 @bot.command(pass_context=True)
 async def rcs(ctx):
@@ -29,9 +37,10 @@ async def rcs(ctx):
 
 @bot.command(pass_context=True)
 async def math(ctx):
-        await bot.say("")
+        await bot.say("This command adds three variables together which returns a sum")
         await bot.say(a + b + c)
         print("The user has issued the command !math")
+
 
 @bot.command(pass_context=True)
 async def about(ctx):
