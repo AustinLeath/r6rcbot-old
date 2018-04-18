@@ -18,6 +18,7 @@ async def on_ready():
 async def gamepresenceloop():
         while 1 == 1:
             await bot.change_presence(game=discord.Game(name='type "!help"'))
+            time.sleep(15)
             await bot.change_presence(game=discord.Game(name='type "!math"'))
             time.sleep(15)
             await bot.change_presence(game=discord.Game(name='type "!info"'))
