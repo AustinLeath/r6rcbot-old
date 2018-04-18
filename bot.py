@@ -6,7 +6,6 @@ import asyncio
 a = 2
 b = 2
 c = 2
-d = a + b + c
 
 bot = commands.Bot(command_prefix="!")
 
@@ -14,26 +13,36 @@ bot = commands.Bot(command_prefix="!")
 async def on_ready():
         print("BOT IS READY")
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
-        await bot.change_presence(game=discord.Game(name='type "!help"'))
+
+@bot.event
+async def gamepresenceloop():
+        while 1 == 1:
+            await bot.change_presence(game=discord.Game(name='type "!help"'))
+            await bot.change_presence(game=discord.Game(name='type "!math"'))
+            time.sleep(15)
+            await bot.change_presence(game=discord.Game(name='type "!info"'))
+            time.sleep(15)
 
 @bot.command(pass_context=True)
 async def ping(ctx):
-        await bot.say("Pong!")
+        embed = discord.Embed(title="Respone for !ping", color=0x00fff00)
+        embed.add_field(name="Response" value=":ping_pong: PONG!")
         print("The user has issued the command !ping")
-
 
 @bot.command(pass_context=True)
 async def rcs(ctx):
-        await bot.say("RILEIGH :heart:")
+        embed = discord.Embed(title="Respone for !rcs", color=0x00fff00)
+        embed.add_field(name="Response" value="RILEIGH :heart:")
         print("The user has issued the command !rcs")
-
 
 @bot.command(pass_context=True)
 async def math(ctx):
-        await bot.say("This command adds three variables together which returns a sum")
-        await bot.say()
+        embed = discord.Embed(title="Respone for !math", color=0x00fff00)
+        embed.add_field(name="Description", value="his command adds three variables together which returns a sum", inl$
+        embed.add_field(name="Games you need to win", value=a + b + c, inline=True)
+        embed.set_footer(text="v1.0.0")
+        await bot.say(embed=embed)
         print("The user has issued the command !math")
-
 
 @bot.command(pass_context=True)
 async def about(ctx):
@@ -45,16 +54,14 @@ async def about(ctx):
         print("The user has issued the command !about")
 
 @bot.command(pass_context=True)
-async def info(ctx):
+async def info(ctx, user: discord.Member):
         embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
         embed.set_footer(text="v1.0.0")
-        embed.add_field(name="Name", value="ghjk", inline=True)
-        embed.add_field(name="Status", value="", inline=True)
-        embed.add_field(name="ID", value="", inline=True)
-        embed.add_field(name="Role", value="", inline=True)
-        embed.add_field(name="Joined", value="", inline=True)
+        embed.add_field(name="Status", value="{}" .format(user.status), inline=True)
+        embed.add_field(name="ID", value="{}" .format(user.id), inline=True)
+        embed.add_field(name="Role", value="{}" .format(user.top_role), inline=True)
+        embed.add_field(name="Joined", value="{}" .format(user.joined_at), inline=True)
         await bot.say(embed=embed)
         print("The user has issued the command !info")
-
 
 bot.run("NDM0NDMyOTczMzYyOTU0MjQx.DbZsFg.YBXSYlhU0pICJgiCv1smjhuefLc")
