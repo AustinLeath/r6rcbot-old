@@ -9,7 +9,6 @@ b = 2
 c = 2
 
 fh = open("token.txt","r")
-print fh.read()
 
 bot = commands.Bot(command_prefix="!")
 
