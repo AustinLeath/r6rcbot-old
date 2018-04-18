@@ -27,13 +27,13 @@ async def on_ready():
 @bot.command(pass_context=True)
 async def ping(ctx):
         embed = discord.Embed(title="Respone for !ping", color=0x00fff00)
-        embed.add_field(name="Response" value=":ping_pong: PONG!")
+        embed.add_field(name="Response", value=":ping_pong: PONG!")
         print("The user has issued the command !ping")
 
 @bot.command(pass_context=True)
 async def rcs(ctx):
         embed = discord.Embed(title="Respone for !rcs", color=0x00fff00)
-        embed.add_field(name="Response" value="RILEIGH :heart:")
+        embed.add_field(name="Response", value="RILEIGH :heart:")
         print("The user has issued the command !rcs")
 
 @bot.command(pass_context=True)
