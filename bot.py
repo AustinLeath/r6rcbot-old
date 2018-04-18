@@ -65,4 +65,4 @@ async def info(ctx, user: discord.Member):
         await bot.say(embed=embed)
         print("The user has issued the command !info")
 
-bot.run("NDM0NDMyOTczMzYyOTU0MjQx.DbZsFg.YBXSYlhU0pICJgiCv1smjhuefLc")
+bot.run("token")
