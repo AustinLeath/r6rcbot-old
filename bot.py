@@ -8,9 +8,9 @@ token_file = open(path,'r')
 token = token_file.read()
 tokenmain = token.strip()
 
-a = 2
-b = 2
-c = 2
+mmr = 1300
+elo = 100
+goal = 4500
 
 bot = commands.Bot(command_prefix="!")
 
@@ -29,19 +29,19 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def ping(ctx):
-        embed = discord.Embed(title="Respone for !ping", color=0x00fff00)
-        embed.add_field(name="Response", value=":ping_pong: PONG!")
-        print("The user has issued the command !ping")
+	await bot.say("PONG!")
+	print("The user has issued the command !ping")
 
 @bot.command(pass_context=True)
 async def rcs(ctx):
 	await bot.say("RILEIGH :heart:")
 	print("The user has issued the command !rcs")
+
 @bot.command(pass_context=True)
 async def math(ctx):
         embed = discord.Embed(title="Respone for !math", color=0x00fff00)
         embed.add_field(name="Description", value="This command adds three variables together which returns a sum", inline=True)
-        embed.add_field(name="Games you need to win", value=a + b + c, inline=True)
+        embed.add_field(name="Games you need to win", value=(goal - mmr) / elo, inline=True)
         embed.set_footer(text="v1.0.0")
         await bot.say(embed=embed)
         print("The user has issued the command !math")
