@@ -11,6 +11,8 @@ tokenmain = token.strip()
 mmr = 1300
 elo = 100
 goal = 4500
+final = (goal - mmr) / elo
+ceil = Math.ceil(final)
 
 bot = commands.Bot(command_prefix="!")
 
@@ -38,10 +40,15 @@ async def rcs(ctx):
 	print("The user has issued the command !rcs")
 
 @bot.command(pass_context=True)
+async def kaz(ctx):
+	await bot.say("and it was at this moment in time, that someone somewhere has just been cucked by Kaz")
+	print("The user has issued the command !kaz")
+
+@bot.command(pass_context=True)
 async def math(ctx):
         embed = discord.Embed(title="Respone for !math", color=0x00fff00)
         embed.add_field(name="Description", value="This command adds three variables together which returns a sum", inline=True)
-        embed.add_field(name="Games you need to win", value=(goal - mmr) / elo, inline=True)
+        embed.add_field(name="Games you need to win", value=ceil, inline=True)
         embed.set_footer(text="v1.0.0")
         await bot.say(embed=embed)
         print("The user has issued the command !math")
@@ -51,7 +58,7 @@ async def about(ctx):
         embed = discord.Embed(title="About The Author", color=0x00fff00)
         embed.set_footer(text="v1.0.0")
         embed.add_field(name="Austin is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com", value="test")
-        embed.set_author(name="Austin Leath AKA - @Game-King#0519")
+        embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !about")
 
