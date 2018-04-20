@@ -20,9 +20,9 @@ bot = commands.Bot(command_prefix="!")
 
 @bot.event
 async def on_ready():
-        print("Using the Token: " + tokenmain)
+        print("Using the Token:" + tokenmain)
         print("BOT IS READY")
-        print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
+        print("BOT IS ONLINE WITH USERNAME:" + bot.user.name)
         while 1 == 1:
             await bot.change_presence(game=discord.Game(name='type !help'))
             await asyncio.sleep(20)
