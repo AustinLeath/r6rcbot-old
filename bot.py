@@ -20,9 +20,9 @@ bot = commands.Bot(command_prefix="!")
 
 @bot.event
 async def on_ready():
-        print("Using the Token:" + tokenmain)
-        print("BOT IS READY")
-        print("BOT IS ONLINE WITH USERNAME:" + bot.user.name)
+        print("Using the Token: " + tokenmain)
+        print("BOT IS READY WITH USER ID: " + bot.user.id)
+        print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
         while 1 == 1:
             await bot.change_presence(game=discord.Game(name='type !help'))
             await asyncio.sleep(20)
@@ -56,10 +56,18 @@ async def math(ctx):
 @bot.command(pass_context=True)
 async def about(ctx):
         embed = discord.Embed(title="About The Author", color=0x00fff00)
-        embed.add_field(name="Austin is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com", value="test")
+        embed.add_field(name="Info", value="Austin is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !about")
+
+@bot.command(pass_context=True)
+async def invite(ctx):
+        embed = discord.Embed(title="Invite me to your server!", color=0x00fff00)
+        embed.add_field(name="Link", value="https://discordapp.com/api/oauth2/authorize?client_id=434432973362954241&permissions=8&scope=bot")
+        embed.set_footer(text="v1.0.0 - @Game-King#0519")
+        await bot.say(embed=embed)
+        print("The user has issued the command !invite")
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
