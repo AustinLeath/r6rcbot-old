@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
+import math
 
 path = 'token.txt'
 token_file = open(path,'r')
@@ -12,7 +13,8 @@ mmr = 1300
 elo = 100
 goal = 4500
 final = (goal - mmr) / elo
-ceil = Math.ceil(final)
+ceil = math.ceil(final)
+abs = math.fabs(ceil)
 
 bot = commands.Bot(command_prefix="!")
 
@@ -48,7 +50,7 @@ async def kaz(ctx):
 async def math(ctx):
         embed = discord.Embed(title="Respone for !math", color=0x00fff00)
         embed.add_field(name="Description", value="This command adds three variables together which returns a sum", inline=True)
-        embed.add_field(name="Games you need to win", value=ceil, inline=True)
+        embed.add_field(name="Games you need to win", value=abs, inline=True)
         embed.set_footer(text="v1.0.0")
         await bot.say(embed=embed)
         print("The user has issued the command !math")
