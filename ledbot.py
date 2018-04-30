@@ -7,15 +7,15 @@ import math
 # for GPIO LED array
 import RPi.GPIO as GPIO
 import time
-
+#GPIO Setup
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-
+# GPIO LED's that are going to be in use
 GPIO.setup(17,GPIO.OUT)
 GPIO.setup(27,GPIO.OUT)
 GPIO.setup(22,GPIO.OUT)
 GPIO.setup(4,GPIO.OUT)
-# fetches the path and reads the token securely
+# fetches the path and securely reads the token
 path = 'token.txt'
 token_file = open(path,'r')
 token = token_file.read()
@@ -30,7 +30,7 @@ final = math.fabs(round)
 # stores the prefix in which the user inputs in Discord, for instance: "!ping", where the "!", signifies the usage of a command
 # for instance: "!ping", where the "!", signifies the usage of a command followed by a string which coorelates to a defined command
 bot = commands.Bot(command_prefix="!")
-
+# After this is completed the bot starts
 @bot.event
 async def on_ready():
         print("Using the Token: " + tokenmain)
@@ -43,17 +43,12 @@ async def on_ready():
             await asyncio.sleep(20)
             await bot.change_presence(game=discord.Game(name='type !about'))
             await asyncio.sleep(20)
-
+# !ping command
 @bot.command(pass_context=True)
 async def ping(ctx):
 	await bot.say("PONG!")
 	print("The user has issued the command !ping")
-
-@bot.command(pass_context=True)
-async def rcs(ctx):
-	await bot.say("RILEIGH :heart:")
-	print("The user has issued the command !rcs")
-
+# !math command
 @bot.command(pass_context=True)
 async def math(ctx):
         embed = discord.Embed(title="Respone for !math", color=0x00fff00)
@@ -65,7 +60,7 @@ async def math(ctx):
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !math")
-
+# !about command
 @bot.command(pass_context=True)
 async def about(ctx):
         embed = discord.Embed(title="About The Author", color=0x00fff00)
@@ -73,7 +68,7 @@ async def about(ctx):
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !about")
-
+# !invite command
 @bot.command(pass_context=True)
 async def invite(ctx):
         embed = discord.Embed(title="Invite me to your server!", color=0x00fff00)
@@ -81,7 +76,7 @@ async def invite(ctx):
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !invite")
-
+# !info command
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
         embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
@@ -92,5 +87,5 @@ async def info(ctx, user: discord.Member):
         embed.add_field(name="Joined", value="{}" .format(user.joined_at), inline=True)
         await bot.say(embed=embed)
         print("The user has issued the command !info")
-
+# Reads token which in turn activates the bot
 bot.run(tokenmain)
