@@ -3,32 +3,39 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import math
-
+# below fetches the path and securely reads the token
 path = 'token.txt'
 token_file = open(path,'r')
 token = token_file.read()
 tokenmain = token.strip()
-
+# below is a list of variables that stores information for the "!math" command
 mmr = 1300
 elo = 100
 goal = 4500
 equation = (goal - mmr) / elo
 round = math.ceil(equation)
 final = math.fabs(round)
-
+# below is a variable that stores the prefix in which the user inputs in Discord, for instance: "!ping", where the "!", symbolizes the usage of a command
+# for instance: "!ping", where the "!" in front of "ping" symbolizes the usage of a command which then captures the the string
+# that comes directly after "!" which then executes a command, if valid
 bot = commands.Bot(command_prefix="!")
-
+# below is the on_ready event which is ALWAYS required
 @bot.event
 async def on_ready():
         print("Using the Token: " + tokenmain)
         print("BOT IS READY WITH USER ID: " + bot.user.id)
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
+
+@bot.event
+async def precense_change():
         while 1 == 1:
             await bot.change_presence(game=discord.Game(name='type !help'))
             await asyncio.sleep(20)
             await bot.change_presence(game=discord.Game(name='type !math'))
             await asyncio.sleep(20)
             await bot.change_presence(game=discord.Game(name='type !about'))
+            await asyncio.sleep(20)
+            await bot.change_presence(game=discord.Game(name='type !invite'))
             await asyncio.sleep(20)
 
 @bot.command(pass_context=True)
