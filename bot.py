@@ -74,6 +74,14 @@ async def invite(ctx):
         print("The user has issued the command !invite")
 
 @bot.command(pass_context=True)
+async def app(ctx):
+        embed = discord.Embed(title="Get the desktop app!", color=0x00fff00)
+        embed.add_field(name="Link", value="https://electronjs.org/apps/mmrcalculator")
+        embed.set_footer(text="v1.0.0 - @Game-King#0519")
+        await bot.say(embed=embed)
+        print("The user has issued the command !app")
+
+@bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
         embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
