@@ -34,16 +34,13 @@ async def on_ready():
             await asyncio.sleep(20)
             await bot.change_presence(game=discord.Game(name='type !invite'))
             await asyncio.sleep(20)
+            await bot.change_presence(game=discord.Game(name='type !app'))
+            await asyncio.sleep(20)
 
 @bot.command(pass_context=True)
 async def ping(ctx):
 	await bot.say("PONG!")
 	print("The user has issued the command !ping")
-
-@bot.command(pass_context=True)
-async def rcs(ctx):
-	await bot.say("RILEIGH :heart:")
-	print("The user has issued the command !rcs")
 
 @bot.command(pass_context=True)
 async def math(ctx):
