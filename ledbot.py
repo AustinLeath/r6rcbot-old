@@ -37,12 +37,15 @@ async def on_ready():
         print("BOT IS READY WITH USER ID: " + bot.user.id)
         print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
         while 1 == 1:
+            await GPIO.output(17,GPIO.HIGH)
             await bot.change_presence(game=discord.Game(name='type !help'))
-            await asyncio.sleep(20)
+            await asyncio.sleep(5)
             await bot.change_presence(game=discord.Game(name='type !math'))
             await asyncio.sleep(20)
+            await asyncio.sleep(5)
             await bot.change_presence(game=discord.Game(name='type !about'))
-            await asyncio.sleep(20)
+            await GPIO.output(17,GPIO.LOW)
+            await asyncio.sleep(5)
 # !ping command
 @bot.command(pass_context=True)
 async def ping(ctx):
