@@ -41,7 +41,6 @@ async def on_ready():
             await bot.change_presence(game=discord.Game(name='type !help'))
             await asyncio.sleep(5)
             await bot.change_presence(game=discord.Game(name='type !math'))
-            await asyncio.sleep(20)
             await asyncio.sleep(5)
             await bot.change_presence(game=discord.Game(name='type !about'))
             await GPIO.output(17,GPIO.LOW)
