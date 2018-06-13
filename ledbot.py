@@ -65,6 +65,9 @@ async def math(ctx):
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !math")
+        GPIO.output(22,GPIO.HIGH)
+        await asyncio.sleep(5)
+        GPIO.output(22,GPIO.LOW)
 # !about command
 @bot.command(pass_context=True)
 async def about(ctx):
