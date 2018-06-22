@@ -73,7 +73,7 @@ async def invite(ctx):
 @bot.command(pass_context=True)
 async def app(ctx):
         embed = discord.Embed(title="Get the desktop app!", color=0x00fff00)
-        embed.add_field(name="Link", value="https://electronjs.org/apps/mmrcalculator")
+        embed.add_field(name="Link", value="https://electronjs.org/apps/r6rc")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !app")
