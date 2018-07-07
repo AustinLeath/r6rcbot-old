@@ -36,6 +36,8 @@ async def on_ready():
             await asyncio.sleep(20)
             await bot.change_presence(game=discord.Game(name='type !app'))
             await asyncio.sleep(20)
+            await bot.change_presence(game=discord.Game(name='type !website'))
+            await asyncio.sleep(20)
 
 @bot.command(pass_context=True)
 async def ping(ctx):
@@ -85,6 +87,14 @@ async def twitter(ctx):
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !twitter")
+
+@bot.command(pass_context=True)
+async def website(ctx):
+        embed = discord.Embed(title="Visit my website!", color=0x00fff00)
+        embed.add_field(name="Link", value="https://www.austinleath.com")
+        embed.set_footer(text="v1.0.0 - @Game-King#0519")
+        await bot.say(embed=embed)
+        print("The user has issued the command !website")
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
