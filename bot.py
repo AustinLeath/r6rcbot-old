@@ -19,6 +19,7 @@ final = math.fabs(round)
 # for instance: "!ping", where the "!" in front of "ping" symbolizes the usage of a command which then captures the the string
 # that comes directly after "!" which then executes a command, if valid
 bot = commands.Bot(command_prefix="!")
+bot.remove_command('help')
 # below is the on_ready event which is ALWAYS required
 @bot.event
 async def on_ready():
@@ -89,9 +90,17 @@ async def twitter(ctx):
         print("The user has issued the command !twitter")
 
 @bot.command(pass_context=True)
+async def help(ctx):
+        embed = discord.Embed(title="Here is a list of commands that you can use", color=0x00fff00)
+        embed.add_field(name="List of commands", value="!help : displays this dialogue")
+        embed.set_footer(text="v1.0.0 - @Game-King#0519")
+        await bot.say(embed=embed)
+        print("The user has issued the command !help")
+
+@bot.command(pass_context=True)
 async def website(ctx):
         embed = discord.Embed(title="Visit my website!", color=0x00fff00)
-        embed.add_field(name="Link", value="https://www.austinleath.com")
+        embed.add_field(name="Link", value="https://r6rc.com/")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !website")
