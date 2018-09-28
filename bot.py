@@ -59,7 +59,7 @@ async def math(ctx):
 
 @bot.command(pass_context=True)
 async def about(ctx):
-        embed = discord.Embed(title="About The Author", color=0x00fff00)
+        embed = discord.Embed(title="About the developer", color=0x00fff00)
         embed.add_field(name="Info", value="Austin is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
@@ -67,7 +67,7 @@ async def about(ctx):
 
 @bot.command(pass_context=True)
 async def invite(ctx):
-        embed = discord.Embed(title="Invite me to your server!", color=0x00fff00)
+        embed = discord.Embed(title="Invite the R6RC bot to your server!", color=0x00fff00)
         embed.add_field(name="Link", value="https://discordapp.com/api/oauth2/authorize?client_id=434432973362954241&permissions=8&scope=bot")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
@@ -75,7 +75,7 @@ async def invite(ctx):
 
 @bot.command(pass_context=True)
 async def app(ctx):
-        embed = discord.Embed(title="Get the desktop app!", color=0x00fff00)
+        embed = discord.Embed(title="Get the R6RC desktop app!", color=0x00fff00)
         embed.add_field(name="Link", value="https://electronjs.org/apps/r6rc")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
@@ -83,7 +83,7 @@ async def app(ctx):
 
 @bot.command(pass_context=True)
 async def twitter(ctx):
-        embed = discord.Embed(title="Follow me on Twitter!", color=0x00fff00)
+        embed = discord.Embed(title="Follow R6RC Twitter!", color=0x00fff00)
         embed.add_field(name="Link", value="https://twitter.com/R6RankCalc")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
@@ -99,8 +99,8 @@ async def help(ctx):
 
 @bot.command(pass_context=True)
 async def website(ctx):
-        embed = discord.Embed(title="Visit my website!", color=0x00fff00)
-        embed.add_field(name="Link", value="https://r6rc.com/")
+        embed = discord.Embed(title="Visit the R6RC website!", color=0x00fff00)
+        embed.add_field(name="Link", value="https://r6rc.com/mmrcalculator.html")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("The user has issued the command !website")
