@@ -83,7 +83,7 @@ async def app(ctx):
 
 @bot.command(pass_context=True)
 async def twitter(ctx):
-        embed = discord.Embed(title="Follow R6RC Twitter!", color=0x00fff00)
+        embed = discord.Embed(title="Follow R6RC On Twitter!", color=0x00fff00)
         embed.add_field(name="Link", value="https://twitter.com/R6RankCalc")
         embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
