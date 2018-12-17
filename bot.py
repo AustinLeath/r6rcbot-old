@@ -82,6 +82,10 @@ async def app(ctx):
         print("The user has issued the command !app")
 
 @bot.command(pass_context=True)
+async def app(ctx, arg1, arg2):
+        await ctx.send('You passed {} and {}'.format(arg1, arg2))
+
+@bot.command(pass_context=True)
 async def twitter(ctx):
         embed = discord.Embed(title="Follow R6RC On Twitter!", color=0x00fff00)
         embed.add_field(name="Link", value="https://twitter.com/R6RankCalc")
