@@ -82,7 +82,7 @@ async def app(ctx):
         print("The user has issued the command !app")
 
 @bot.command(pass_context=True)
-async def app(ctx, arg1, arg2):
+async def testcomm(ctx, arg1, arg2):
         await ctx.send('You passed {} and {}'.format(arg1, arg2))
 
 @bot.command(pass_context=True)
