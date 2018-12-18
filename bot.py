@@ -9,12 +9,12 @@ token_file = open(path,'r')
 token = token_file.read()
 tokenmain = token.strip()
 # below is a list of variables that stores information for the "!math" command
-mmr = 1300
-elo = 100
-goal = 4500
-equation = (goal - mmr) / elo
-round = math.ceil(equation)
-final = math.fabs(round)
+#mmr = 1300
+#elo = 100
+#goal = 4500
+#equation = (goal - mmr) / elo
+#round = math.ceil(equation)
+#final = math.fabs(round)
 # below is a variable that stores the prefix in which the user inputs in Discord, for instance: "!ping", where the "!", symbolizes the usage of a command
 # for instance: "!ping", where the "!" in front of "ping" symbolizes the usage of a command which then captures the the string
 # that comes directly after "!" which then executes a command, if valid
@@ -84,6 +84,19 @@ async def app(ctx):
 @bot.command(pass_context=True)
 async def testcomm(ctx, arg1, arg2):
         await ctx.send('You passed {} and {}'.format(arg1, arg2))
+
+
+@bot.command(pass_context=True)
+async def joined(ctx, arg1, arg2, arg3):
+    mmr = int(arg1)
+    elo = int(arg2)
+    goal = int(arg3)
+    
+    if((mmr <= 0 | mmr >= 0) & (elo <= 0 | elo >= 0) & (goal <= 0 | goal >= 0)):
+        await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
+    else:
+        await bot.say('The numbers you entered are not Integers')
+
 
 @bot.command(pass_context=True)
 async def twitter(ctx):
