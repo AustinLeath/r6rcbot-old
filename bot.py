@@ -40,6 +40,11 @@ async def on_ready():
             await bot.change_presence(game=discord.Game(name='type !website'))
             await asyncio.sleep(20)
 
+@bot.event
+async def on_member_join(member):
+    role = discord.utils.get(member.server.roles, id="<Users>")
+    await bot.add_roles(member, role)
+
 @bot.command(pass_context=True)
 async def ping(ctx):
 	await bot.say("PONG!")
@@ -82,21 +87,15 @@ async def app(ctx):
         print("The user has issued the command !app")
 
 @bot.command(pass_context=True)
-async def testcomm(ctx, arg1, arg2):
-        await ctx.send('You passed {} and {}'.format(arg1, arg2))
-
-
-@bot.command(pass_context=True)
-async def joined(ctx, arg1, arg2, arg3):
+async def calc(ctx, arg1, arg2, arg3):
     mmr = int(arg1)
     elo = int(arg2)
     goal = int(arg3)
 
-    if(mmr.isalpha() | elo.isalpha() | goal.isaplha()):
-        await bot.say('Some of the numbers you entered are not Integers')
+    if(1 != 1):
+        await bot.say('Some of the numbers you entered are not integers, please try again')
     else:
-        if((mmr <= 0 | mmr >= 0) & (elo <= 0 | elo >= 0) & (goal <= 0 | goal >= 0)):
-            await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
+        await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
 
 
 @bot.command(pass_context=True)
