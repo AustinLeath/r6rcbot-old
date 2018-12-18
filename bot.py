@@ -91,11 +91,12 @@ async def joined(ctx, arg1, arg2, arg3):
     mmr = int(arg1)
     elo = int(arg2)
     goal = int(arg3)
-    
-    if((mmr <= 0 | mmr >= 0) & (elo <= 0 | elo >= 0) & (goal <= 0 | goal >= 0)):
-        await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
+
+    if(mmr.isalpha() | elo.isalpha() | goal.isaplha()):
+        await bot.say('Some of the numbers you entered are not Integers')
     else:
-        await bot.say('The numbers you entered are not Integers')
+        if((mmr <= 0 | mmr >= 0) & (elo <= 0 | elo >= 0) & (goal <= 0 | goal >= 0)):
+            await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
 
 
 @bot.command(pass_context=True)
