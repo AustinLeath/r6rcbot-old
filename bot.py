@@ -40,11 +40,6 @@ async def on_ready():
             await bot.change_presence(game=discord.Game(name='type !website'))
             await asyncio.sleep(20)
 
-@bot.event
-async def on_member_join(member):
-    role = discord.utils.get(member.server.roles, id="<Users>")
-    await bot.add_roles(member, role)
-
 @bot.command(pass_context=True)
 async def ping(ctx):
 	await bot.say("PONG!")
