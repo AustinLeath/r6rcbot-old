@@ -3,12 +3,12 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import math
+import ast
 # below fetches the path and securely reads the token
 path = 'token.txt'
 token_file = open(path,'r')
 token = token_file.read()
 tokenmain = token.strip()
-# below is a list of variables that stores information for the "!math" command
 # below is a variable that stores the prefix in which the user inputs in Discord, for instance: "!ping", where the "!", symbolizes the usage of a command
 # for instance: "!ping", where the "!" in front of "ping" symbolizes the usage of a command which then captures the the string
 # that comes directly after "!" which then executes a command, if valid
@@ -23,7 +23,7 @@ async def on_ready():
     while 1 == 1:
         await bot.change_presence(game=discord.Game(name='type !help'))
         await asyncio.sleep(20)
-        await bot.change_presence(game=discord.Game(name='type !math'))
+        await bot.change_presence(game=discord.Game(name='type !calc'))
         await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !about'))
         await asyncio.sleep(20)
@@ -36,20 +36,8 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def ping(ctx):
-	await bot.say("PONG!")
-	print("The user has issued the command !ping")
-
-@bot.command(pass_context=True)
-async def math(ctx):
-    embed = discord.Embed(title="Respone for !math", color=0x00fff00)
-    embed.add_field(name="Description", value="This command adds three variables together which returns a sum", inline=True)
-    embed.add_field(name="You need to play", value=final, inline=True)
-    embed.add_field(name="Your current MMR is:", value=mmr, inline=True)
-    embed.add_field(name="Your current ELO per match is:", value=elo, inline=True)
-    embed.add_field(name="The your goal is:", value=goal, inline=True)
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
-    await bot.say(embed=embed)
-    print("The user has issued the command !math")
+    await bot.say("PONG!")
+    print("The user has issued the command !ping")
 
 @bot.command(pass_context=True)
 async def about(ctx):
@@ -77,13 +65,16 @@ async def app(ctx):
 
 @bot.command(pass_context=True)
 async def calc(ctx, arg1, arg2, arg3):
-    mmr = int(arg1)
-    elo = int(arg2)
-    goal = int(arg3)
-
-    if(1 != 1):
-        await bot.say('Some of the numbers you entered are not integers, please try again')
+    mmr = str(arg1)
+    elo = str(arg2)
+    goal = str(arg3)
+    if(mmr.isalpha() | elo.isalpha() | goal.isalpha()):
+        await bot.say('Some of the characters that you entered were not integers, please try again')
+        print("The user has issued the command !calc with some characters were not integers")
     else:
+        mmr = int(arg1)
+        elo = int(arg1)
+        goal = int(arg3)
         await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
         await bot.say('You must win ' + str((goal - mmr) / elo) + ' matches to reach your goal')
         print("The user has issued the command !calc")
@@ -99,11 +90,8 @@ async def twitter(ctx):
 
 @bot.command(pass_context=True)
 async def help(ctx):
-    embed = discord.Embed(title="Here is a list of commands that you can use", color=0x00fff00)
-    embed.add_field(name="List of commands", value="!help : displays this dialogue")
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
-    await bot.say(embed=embed)
-    print("The user has issued the command !help")
+    await bot.say('*!help* : displays this message')
+    await bot.say('*!calc* : calculates user ranks')
 
 @bot.command(pass_context=True)
 async def website(ctx):
