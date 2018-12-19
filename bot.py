@@ -96,8 +96,10 @@ async def calc(ctx, arg1, arg2, arg3):
         await bot.say('Some of the numbers you entered are not integers, please try again')
     else:
         await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
+        await bot.say('You must win ' + str((goal - mmr) / elo) + ' matches to reach your goal')
+        print("The user has issued the command !calc")
 
-
+#math.fabs(math.ceil((goal - mmr) / elo))
 @bot.command(pass_context=True)
 async def twitter(ctx):
         embed = discord.Embed(title="Follow R6RC On Twitter!", color=0x00fff00)
