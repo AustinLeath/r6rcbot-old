@@ -35,9 +35,26 @@ async def on_ready():
         await asyncio.sleep(20)
 
 @bot.command(pass_context=True)
-async def ping(ctx):
-    await bot.say("PONG!")
-    print("The user has issued the command !ping")
+async def help(ctx):
+    await bot.say('**!help** : displays this message')
+    await bot.say('**!info** : displays information about a user')
+    await bot.say('**!about** : gives the user more information about the bot and the developer')
+    await bot.say('**!invite** : gives the user a link to invite the R6RC bot to their Discord')
+    await bot.say('**!app** : gives the user a link to the direct download for the R6RC desktop application')
+    await bot.say('**!twitter* : displays a dialogue directing the user to the R6RC Twitter account')
+    await bot.say('**!website** : gives the user a link to the online version of R6RC')
+    await bot.say('**!calc** : calculates user ranks')
+
+@bot.command(pass_context=True)
+async def info(ctx, user: discord.Member):
+    embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
+    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    embed.add_field(name="Status", value="{}" .format(user.status), inline=True)
+    embed.add_field(name="ID", value="{}" .format(user.id), inline=True)
+    embed.add_field(name="Role", value="{}" .format(user.top_role), inline=True)
+    embed.add_field(name="Joined", value="{}" .format(user.joined_at), inline=True)
+    await bot.say(embed=embed)
+    print("The user has issued the command !info")
 
 @bot.command(pass_context=True)
 async def about(ctx):
@@ -64,6 +81,22 @@ async def app(ctx):
     print("The user has issued the command !app")
 
 @bot.command(pass_context=True)
+async def twitter(ctx):
+    embed = discord.Embed(title="Follow R6RC On Twitter!", color=0x00fff00)
+    embed.add_field(name="Link", value="https://twitter.com/R6RankCalc")
+    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    await bot.say(embed=embed)
+    print("The user has issued the command !twitter")
+
+@bot.command(pass_context=True)
+async def website(ctx):
+    embed = discord.Embed(title="Visit the R6RC website!", color=0x00fff00)
+    embed.add_field(name="Link", value="https://r6rc.com/mmrcalculator.html")
+    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    await bot.say(embed=embed)
+    print("The user has issued the command !website")
+
+@bot.command(pass_context=True)
 async def calc(ctx, arg1, arg2, arg3):
     mmr = str(arg1)
     elo = str(arg2)
@@ -78,38 +111,5 @@ async def calc(ctx, arg1, arg2, arg3):
         await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
         await bot.say('You must win ' + str((goal - mmr) / elo) + ' matches to reach your goal')
         print("The user has issued the command !calc")
-
-#math.fabs(math.ceil((goal - mmr) / elo))
-@bot.command(pass_context=True)
-async def twitter(ctx):
-    embed = discord.Embed(title="Follow R6RC On Twitter!", color=0x00fff00)
-    embed.add_field(name="Link", value="https://twitter.com/R6RankCalc")
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
-    await bot.say(embed=embed)
-    print("The user has issued the command !twitter")
-
-@bot.command(pass_context=True)
-async def help(ctx):
-    await bot.say('*!help* : displays this message')
-    await bot.say('*!calc* : calculates user ranks')
-
-@bot.command(pass_context=True)
-async def website(ctx):
-    embed = discord.Embed(title="Visit the R6RC website!", color=0x00fff00)
-    embed.add_field(name="Link", value="https://r6rc.com/mmrcalculator.html")
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
-    await bot.say(embed=embed)
-    print("The user has issued the command !website")
-
-@bot.command(pass_context=True)
-async def info(ctx, user: discord.Member):
-    embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
-    embed.add_field(name="Status", value="{}" .format(user.status), inline=True)
-    embed.add_field(name="ID", value="{}" .format(user.id), inline=True)
-    embed.add_field(name="Role", value="{}" .format(user.top_role), inline=True)
-    embed.add_field(name="Joined", value="{}" .format(user.joined_at), inline=True)
-    await bot.say(embed=embed)
-    print("The user has issued the command !info")
 
 bot.run(tokenmain)
