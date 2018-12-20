@@ -73,7 +73,7 @@ async def calc(ctx, arg1, arg2, arg3):
         print("The user has issued the command !calc with some characters were not integers")
     else:
         mmr = int(arg1)
-        elo = int(arg1)
+        elo = int(arg2)
         goal = int(arg3)
         await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
         await bot.say('You must win ' + str((goal - mmr) / elo) + ' matches to reach your goal')
