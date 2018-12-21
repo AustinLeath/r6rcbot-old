@@ -59,7 +59,7 @@ async def info(ctx, user: discord.Member):
 @bot.command(pass_context=True)
 async def about(ctx):
     embed = discord.Embed(title="About the developer", color=0x00fff00)
-    embed.add_field(name="Info", value="Austin is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com")
+    embed.add_field(name="Info", value="The developer of this bot is Austin Leath, he is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com")
     embed.set_footer(text="v1.0.0 - @Game-King#0519")
     await bot.say(embed=embed)
     print("The user has issued the command !about")
@@ -82,7 +82,7 @@ async def app(ctx):
 
 @bot.command(pass_context=True)
 async def twitter(ctx):
-    embed = discord.Embed(title="Follow R6RC On Twitter!", color=0x00fff00)
+    embed = discord.Embed(title="Follow R6RC on Twitter!", color=0x00fff00)
     embed.add_field(name="Link", value="https://twitter.com/R6RankCalc")
     embed.set_footer(text="v1.0.0 - @Game-King#0519")
     await bot.say(embed=embed)
@@ -101,15 +101,45 @@ async def calc(ctx, arg1, arg2, arg3):
     mmr = str(arg1)
     elo = str(arg2)
     goal = str(arg3)
-    if(mmr.isalpha() | elo.isalpha() | goal.isalpha()):
-        await bot.say('Some of the characters that you entered were not integers, please try again')
-        print("The user has issued the command !calc with some characters were not integers")
+
+
+    SearchObjOne = re.search(r"[a-z]", mmr, re.I)
+    SearchObjTwo = re.search(r"[a-z]", elo, re.I)
+    SearchObjThree = re.search(r"[a-z]", goal, re.I)
+
+    if(SearchObjOne):
+        await bot.say('Some of the characters that you entered were either not integers or negative, please try again')
+        print("The user has issued the command !calc with some characters that were either not integers or negative")
+    elif(SearchObjTwo):
+        await bot.say('Some of the characters that you entered were either not integers or negative, please try again')
+        print("The user has issued the command !calc with some characters that were either not integers or negative")
+    elif(SearchObjThree):
+        await bot.say('Some of the characters that you entered were either not integers or negative, please try again')
+        print("The user has issued the command !calc with some characters that were either not integers or negative")
     else:
-        mmr = int(arg1)
-        elo = int(arg2)
-        goal = int(arg3)
-        await bot.say('Your MMR is: {} and your ELO is: {} your goal is: {}'.format(arg1, arg2, arg3))
-        await bot.say('You must win ' + str((goal - mmr) / elo) + ' matches to reach your goal')
+        mmr = math.fabs(int(arg1))
+        elo = math.fabs(int(arg2))
+        goal = math.fabs(int(arg3))
+
+        equation = (goal - mmr) / elo
+        round = math.ceil(equation)
+        final = str(math.fabs(round))
+
+        if(round < 0):
+            winorlose = "You need to lose "
+        elif(round > 0):
+            winorlose = "You need to win "
+        else:
+            winorlose = "You do not need to win or lose any "
+
+        if(math.fabs(round) == 1):
+            matchcount = " match "
+        elif(math.fabs(round) > 1):
+            matchcount = " matches "
+        else:
+            matchcount = " matches "
+        await bot.say('Your MMR is: ' + str(mmr) + ' your ELO is: ' + str(elo) + ' your goal is: ' + str(goal))
+        await bot.say(winorlose + final + matchcount +'to reach your goal')
         print("The user has issued the command !calc")
 
 bot.run(tokenmain)
