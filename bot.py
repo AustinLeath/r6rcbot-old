@@ -41,7 +41,7 @@ async def help(ctx):
     await bot.say('**!about** : gives the user more information about the bot and the developer')
     await bot.say('**!invite** : gives the user a link to invite the R6RC bot to their Discord')
     await bot.say('**!app** : gives the user a link to the direct download for the R6RC desktop application')
-    await bot.say('**!twitter* : displays a dialogue directing the user to the R6RC Twitter account')
+    await bot.say('**!twitter** : displays a dialogue directing the user to the R6RC Twitter account')
     await bot.say('**!website** : gives the user a link to the online version of R6RC')
     await bot.say('**!calc** : calculates user ranks')
 
