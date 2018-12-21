@@ -4,6 +4,7 @@ from discord.ext.commands import Bot
 import asyncio
 import math
 import ast
+import re
 # below fetches the path and securely reads the token
 path = 'token.txt'
 token_file = open(path,'r')
