@@ -26,6 +26,8 @@ async def on_ready():
         await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !calc'))
         await asyncio.sleep(20)
+        await bot.change_presence(game=discord.Game(name='type !list'))
+        await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !about'))
         await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !invite'))
@@ -45,6 +47,7 @@ async def help(ctx):
     await bot.say('**!twitter** : displays a dialogue directing the user to the R6RC Twitter account')
     await bot.say('**!website** : gives the user a link to the online version of R6RC')
     await bot.say('**!calc** : calculates user ranks')
+    await bot.say('**!list** : displays all ranks with their associated MMR values')
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
@@ -142,5 +145,10 @@ async def calc(ctx, arg1, arg2, arg3):
         await bot.say('Your MMR is: ' + str(mmr) + ' your ELO is: ' + str(elo) + ' your goal is: ' + str(goal))
         await bot.say(winorlose + final + matchcount +'to reach your goal')
         print("The user has issued the command !calc")
+
+@bot.command(pass_context=True)
+async def list(ctx):
+    await bot.say('https://imgur.com/dc1REQz')
+    print("The user has issued the command !list")
 
 bot.run(tokenmain)
