@@ -3,7 +3,6 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import math
-import ast
 import re
 # below fetches the path and securely reads the token
 path = 'token.txt'
@@ -21,7 +20,7 @@ async def on_ready():
     print("Using the Token: " + tokenmain)
     print("BOT IS READY WITH USER ID: " + bot.user.id)
     print("BOT IS ONLINE WITH USERNAME: " + bot.user.name)
-    while 1 == 1:
+    while True:
         await bot.change_presence(game=discord.Game(name='type !help'))
         await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !calc'))
@@ -50,7 +49,7 @@ async def help(ctx):
     await bot.say('**!website** : gives the user a link to the online version of R6RC')
     await bot.say('**!calc** : calculates user ranks')
     await bot.say('**!list** : displays all ranks with their associated MMR values')
-    await bot.say('**!discord** : displays an invite to the official R6RC server')
+    await bot.say('**!server** : displays an invite to the official R6RC server')
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
@@ -109,7 +108,6 @@ async def calc(ctx, arg1, arg2, arg3):
     elo = str(arg2)
     goal = str(arg3)
 
-
     SearchObjOne = re.search(r"[a-z]", mmr, re.I)
     SearchObjTwo = re.search(r"[a-z]", elo, re.I)
     SearchObjThree = re.search(r"[a-z]", goal, re.I)
@@ -138,7 +136,6 @@ async def calc(ctx, arg1, arg2, arg3):
             winorlose = "You need to win "
         else:
             winorlose = "You do not need to win or lose any "
-
         if(math.fabs(round) == 1):
             matchcount = " match "
         elif(math.fabs(round) > 1):
@@ -155,8 +152,8 @@ async def list(ctx):
     print("The user has issued the command !list")
 
 @bot.command(pass_context=True)
-async def discord(ctx):
+async def server(ctx):
     await bot.say('https://discord.gg/NaAmbbb')
-    print("The user has issued the command !discord")
+    print("The user has issued the command !server")
 
 bot.run(tokenmain)
