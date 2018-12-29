@@ -28,6 +28,8 @@ async def on_ready():
         await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !list'))
         await asyncio.sleep(20)
+        await bot.change_presence(game=discord.Game(name='type !discord'))
+        await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !about'))
         await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !invite'))
@@ -48,6 +50,7 @@ async def help(ctx):
     await bot.say('**!website** : gives the user a link to the online version of R6RC')
     await bot.say('**!calc** : calculates user ranks')
     await bot.say('**!list** : displays all ranks with their associated MMR values')
+    await bot.say('**!discord** : displays an invite to the official R6RC server')
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
@@ -150,5 +153,10 @@ async def calc(ctx, arg1, arg2, arg3):
 async def list(ctx):
     await bot.say('https://imgur.com/dc1REQz')
     print("The user has issued the command !list")
+
+@bot.command(pass_context=True)
+async def discord(ctx):
+    await bot.say('https://discord.gg/NaAmbbb')
+    print("The user has issued the command !discord")
 
 bot.run(tokenmain)
