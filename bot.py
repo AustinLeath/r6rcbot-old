@@ -137,9 +137,9 @@ async def calc(ctx, arg1, arg2, arg3):
         else:
             winorlose = "You do not need to win or lose any "
         if(math.fabs(round) == 1):
-            matchcount = " match "
+            matchcount = " (± 1) match "
         elif(math.fabs(round) > 1):
-            matchcount = " matches "
+            matchcount = " (± 1) matches "
         else:
             matchcount = " matches "
         await bot.say('Your MMR is: ' + str(mmr) + ' your ELO is: ' + str(elo) + ' your goal is: ' + str(goal))
