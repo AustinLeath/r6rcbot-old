@@ -121,13 +121,13 @@ async def calc(ctx, arg1, arg2, arg3):
     elif(SearchObjThree):
         await bot.say('Some of the characters that you entered were not integers, please try again')
         print("A user has issued the command !calc with some characters that were not integers")
-    elif(int(mmr) < -10000 || int(mmr) > 10000):
+    elif(int(mmr) < -10000 or int(mmr) > 10000):
         await bot.say('Some of the numbers that you entered were either above the maximum or below the minimum value that R6RC supports, please try again')
         print("A user has issued the command !calc with some characters that were either above the maximum or below the minimum value that R6RC supports")
-    elif(int(elo) < 1 || int(elo) > 500):
+    elif(int(elo) < 1 or int(elo) > 500):
         await bot.say('Some of the numbers that you entered were either above the maximum or below the minimum value that R6RC supports, please try again')
         print("A user has issued the command !calc with some characters that were either above the maximum or below the minimum value that R6RC supports")
-    elif(int(goal) < -10000 || int(goal) > 10000):
+    elif(int(goal) < -10000 or int(goal) > 10000):
         await bot.say('Some of the numbers that you entered were either above the maximum or below the minimum value that R6RC supports, please try again')
         print("A user has issued the command !calc with some characters that were either above the maximum or below the minimum value that R6RC supports")
     else:
@@ -137,7 +137,7 @@ async def calc(ctx, arg1, arg2, arg3):
 
         equation = (goal - mmr) / elo
         round = math.ceil(equation)
-        final = str(int(math.fabs(round)))
+        final = str(math.fabs(round))
 
         if(round < 0):
             winorlose = "You need to lose "
