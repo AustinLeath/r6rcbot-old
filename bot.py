@@ -134,10 +134,10 @@ async def calc(ctx, arg1, arg2, arg3):
         mmr = int(arg1)
         elo = int(arg2)
         goal = int(arg3)
-        
+
         equation = (goal - mmr) / elo
         round = math.ceil(equation)
-        final = str(math.fabs(round))
+        final = str(int(math.fabs(round)))
 
         if(round < 0):
             winorlose = "You need to lose "
@@ -151,6 +151,10 @@ async def calc(ctx, arg1, arg2, arg3):
             matchcount = " (± 1) matches "
         else:
             matchcount = " matches "
+
+        if(final == 0):
+            final = ""
+
         await bot.say('Your MMR is: ' + str(mmr) + ' your ELO is: ' + str(elo) + ' your goal is: ' + str(goal))
         await bot.say(winorlose + final + matchcount +'to reach your goal')
         print("A user has issued the command !calc")
