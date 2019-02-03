@@ -152,7 +152,7 @@ async def calc(ctx, arg1, arg2, arg3):
         else:
             matchcount = " matches "
 
-        if(final == 0):
+        if(final = "0"):
             final = ""
 
         await bot.say('Your MMR is: ' + str(mmr) + ' your ELO is: ' + str(elo) + ' your goal is: ' + str(goal))
