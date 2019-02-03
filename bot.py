@@ -131,10 +131,10 @@ async def calc(ctx, arg1, arg2, arg3):
         await bot.say('Some of the numbers that you entered were either above the maximum or below the minimum value that R6RC supports, please try again')
         print("A user has issued the command !calc with some characters that were either above the maximum or below the minimum value that R6RC supports")
     else:
-        mmr = int(arg1))
-        elo = int(arg2))
-        goal = int(arg3))
-
+        mmr = int(arg1)
+        elo = int(arg2)
+        goal = int(arg3)
+        
         equation = (goal - mmr) / elo
         round = math.ceil(equation)
         final = str(math.fabs(round))
