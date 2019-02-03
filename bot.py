@@ -108,9 +108,9 @@ async def calc(ctx, arg1, arg2, arg3):
     elo = str(arg2)
     goal = str(arg3)
 
-    SearchObjOne = re.search(r"[a-z]", mmr, re.I)
-    SearchObjTwo = re.search(r"[a-z]", elo, re.I)
-    SearchObjThree = re.search(r"[a-z]", goal, re.I)
+    SearchObjOne = re.search(r"[\D+]", mmr, re.I)
+    SearchObjTwo = re.search(r"[\D+]", elo, re.I)
+    SearchObjThree = re.search(r"[\D+]", goal, re.I)
 
     if(SearchObjOne):
         await bot.say('Some of the characters that you entered were not integers, please try again')
