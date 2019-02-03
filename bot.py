@@ -27,7 +27,7 @@ async def on_ready():
         await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !list'))
         await asyncio.sleep(20)
-        await bot.change_presence(game=discord.Game(name='type !discord'))
+        await bot.change_presence(game=discord.Game(name='type !server'))
         await asyncio.sleep(20)
         await bot.change_presence(game=discord.Game(name='type !about'))
         await asyncio.sleep(20)
@@ -136,8 +136,11 @@ async def calc(ctx, arg1, arg2, arg3):
         goal = int(arg3)
 
         equation = (goal - mmr) / elo
-        round = math.ceil(equation)
+        round = int(math.ceil(equation))
         final = str(int(math.fabs(round)))
+
+        if(final == "0"):
+            final = ""
 
         if(round < 0):
             winorlose = "You need to lose "
@@ -145,15 +148,12 @@ async def calc(ctx, arg1, arg2, arg3):
             winorlose = "You need to win "
         else:
             winorlose = "You do not need to win or lose any "
-        if(math.fabs(round) == 1):
+        if(int(math.fabs(round)) == 1):
             matchcount = " (± 1) match "
-        elif(math.fabs(round) > 1):
+        elif(int(math.fabs(round)) > 1):
             matchcount = " (± 1) matches "
         else:
             matchcount = " matches "
-
-        if(final = "0"):
-            final = ""
 
         await bot.say('Your MMR is: ' + str(mmr) + ' your ELO is: ' + str(elo) + ' your goal is: ' + str(goal))
         await bot.say(winorlose + final + matchcount +'to reach your goal')
