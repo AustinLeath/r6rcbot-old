@@ -47,7 +47,7 @@ async def help(ctx):
     await bot.say('**!app** : gives A user a link to the direct download for the R6RC desktop application')
     await bot.say('**!twitter** : displays a dialogue directing A user to the R6RC Twitter account')
     await bot.say('**!website** : gives A user a link to the online version of R6RC')
-    await bot.say('**!calc** : calculates user ranks')
+    await bot.say('**!calc** : calculates user ranks when you give it three sets of data like this: **!calc MMR ELO GOAL**')
     await bot.say('**!list** : displays all ranks with their associated MMR values')
     await bot.say('**!server** : displays an invite to the official R6RC server')
 
@@ -97,7 +97,7 @@ async def twitter(ctx):
 @bot.command(pass_context=True)
 async def website(ctx):
     embed = discord.Embed(title="Visit the R6RC website!", color=0x00fff00)
-    embed.add_field(name="Link", value="https://r6rc.com/mmrcalculator.html")
+    embed.add_field(name="Link", value="https://r6rc.com")
     embed.set_footer(text="v1.0.0 - @Game-King#0519")
     await bot.say(embed=embed)
     print("A user has issued the command !website")
