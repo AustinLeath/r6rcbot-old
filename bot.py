@@ -104,7 +104,6 @@ async def website(ctx):
 
 @bot.command(pass_context=True)
 async def calc(ctx, arg1, arg2, arg3):
-    send_typing(message.channel)
     mmr = str(arg1)
     elo = str(arg2)
     goal = str(arg3)
