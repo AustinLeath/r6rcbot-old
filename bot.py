@@ -163,11 +163,11 @@ async def calc(ctx, arg1, arg2, arg3):
             color = discord.Colour.blue()
         )
 
-        embed.add_field("MMR", str(mmr) + "\n\u061C", true)
-        embed.add_field("ELO", str(elo) + "\n\u061C", true)
-        embed.add_field("GOAL", str(goal) + "\n\u061C", true)
-        embed.add_field(winorlose + final + matchcount +'to reach your goal')
-        embed.set_footer("Get this bot on your server from r6rc.com/discord")
+        embed.add_field(name='MMR', value=str(mmr) + inline=True)
+        embed.add_field(name='ELO', value=str(elo) + inline=True)
+        embed.add_field(name='GOAL', value=str(goal) + inline=True)
+        #embed.add_field(name='RESPONSE', value=winorlose + final + matchcount +'to reach your goal')
+        #embed.set_footer("Get this bot on your server from r6rc.com/discord")
         print("A user has issued the command !calc")
 
 @bot.command(pass_context=True)
