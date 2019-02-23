@@ -40,16 +40,23 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def help(ctx):
-    await bot.say('**!help** : displays this message')
-    await bot.say('**!info** : displays information about a user')
-    await bot.say('**!about** : gives A user more information about the bot and the developer')
-    await bot.say('**!invite** : gives A user a link to invite the R6RC bot to their Discord')
-    await bot.say('**!app** : gives A user a link to the direct download for the R6RC desktop application')
-    await bot.say('**!twitter** : displays a dialogue directing A user to the R6RC Twitter account')
-    await bot.say('**!website** : gives A user a link to the online version of R6RC')
-    await bot.say('**!calc** : calculates user ranks when you give it three sets of data like this: **!calc MMR ELO GOAL**')
-    await bot.say('**!list** : displays all ranks with their associated MMR values')
-    await bot.say('**!server** : displays an invite to the official R6RC server')
+    embed = discord.Embed(
+        title="",
+        color=0x00fff00
+    )
+
+    embed.add_field(name="!help", value="Displays this message", inline=False)
+    embed.add_field(name="!info", value="Displays information about a user", inline=False)
+    embed.add_field(name="!about", value="Gives the user more information about the bot and the developer", inline=False)
+    embed.add_field(name="!invite", value="Gives the user a link to invite the R6RC bot to their Discord", inline=False)
+    embed.add_field(name="!app", value="Gives the user a link to the direct download for the R6RC desktop application", inline=False)
+    embed.add_field(name="!twitter", value="Displays a dialogue directing A user to the R6RC Twitter account", inline=False)
+    embed.add_field(name="!website", value=" Gives the user a link to the online version of R6RC", inline=False)
+    embed.add_field(name="!calc", value=" Calculates user ranks when you give it three sets of data like this: **!calc MMR ELO GOAL**", inline=False)
+    embed.add_field(name="!list", value="Displays all ranks with their associated MMR values", inline=False)
+    embed.add_field(name="!server", value="Displays an invite to the official R6RC server", inline=False)
+    await bot.say(embed=embed)
+    print("A user has issued the command !help")
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
