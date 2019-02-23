@@ -172,8 +172,8 @@ async def calc(ctx, arg1, arg2, arg3):
         embed.add_field(name='MMR', value=str(mmr), inline=True)
         embed.add_field(name='ELO', value=str(elo), inline=True)
         embed.add_field(name='GOAL', value=str(goal), inline=True)
-        #embed.add_field(name='RESPONSE', value=winorlose + final + matchcount +'to reach your goal')
-        #embed.set_footer("Get this bot on your server from r6rc.com/discord")
+        embed.add_field(name='Result', value=winorlose + final + matchcount +'to reach your goal', inline=False)
+        embed.set_footer(text="v1.0.0 - @Game-King#0519")
         await bot.say(embed=embed)
         print("A user has issued the command !calc")
 
