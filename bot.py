@@ -167,6 +167,7 @@ async def calc(ctx, arg1, arg2, arg3):
         embed.add_field(name='GOAL', value=str(goal), inline=True)
         #embed.add_field(name='RESPONSE', value=winorlose + final + matchcount +'to reach your goal')
         #embed.set_footer("Get this bot on your server from r6rc.com/discord")
+        await bot.say(embed=embed)
         print("A user has issued the command !calc")
 
 @bot.command(pass_context=True)
