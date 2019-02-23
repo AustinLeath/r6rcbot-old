@@ -104,6 +104,7 @@ async def website(ctx):
 
 @bot.command(pass_context=True)
 async def calc(ctx, arg1, arg2, arg3):
+    send_typing(message.channel)
     mmr = str(arg1)
     elo = str(arg2)
     goal = str(arg3)
@@ -155,8 +156,18 @@ async def calc(ctx, arg1, arg2, arg3):
         else:
             matchcount = "matches "
 
-        await bot.say('Your MMR is: ' + str(mmr) + ' your ELO is: ' + str(elo) + ' your goal is: ' + str(goal))
-        await bot.say(winorlose + final + matchcount +'to reach your goal')
+
+        embed = discord.Embed(
+            title = 'R6RC !calc',
+            description = 'Response to !calc',
+            color = discord.Colour.blue()
+        )
+
+        embed.add_field("MMR", str(mmr) + "\n\u061C", true)
+        embed.add_field("ELO", str(elo) + "\n\u061C", true)
+        embed.add_field("GOAL", str(goal) + "\n\u061C", true)
+        embed.add_field(winorlose + final + matchcount +'to reach your goal')
+        embed.set_footer("Get this bot on your server from r6rc.com/discord")
         print("A user has issued the command !calc")
 
 @bot.command(pass_context=True)
