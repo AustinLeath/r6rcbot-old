@@ -61,7 +61,7 @@ async def help(ctx):
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
     embed = discord.Embed(title="{}'s info" .format(user.name), color=0x00fff00)
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    embed.set_footer(text="v1.0.0 - @Austin Leath#0519")
     embed.add_field(name="Status", value="{}" .format(user.status), inline=True)
     embed.add_field(name="ID", value="{}" .format(user.id), inline=True)
     embed.add_field(name="Role", value="{}" .format(user.top_role), inline=True)
@@ -73,7 +73,7 @@ async def info(ctx, user: discord.Member):
 async def about(ctx):
     embed = discord.Embed(title="About the developer", color=0x00fff00)
     embed.add_field(name="Info", value="The developer of this bot is Austin Leath, he is a young web engineer looking for work. If you would like to contact him send him an email at austinleath18@gmail.com")
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    embed.set_footer(text="v1.0.0 - @Austin Leath#0519")
     await bot.say(embed=embed)
     print("A user has issued the command !about")
 
@@ -81,7 +81,7 @@ async def about(ctx):
 async def invite(ctx):
     embed = discord.Embed(title="Invite the R6RC bot to your server!", color=0x00fff00)
     embed.add_field(name="Link", value="https://discordapp.com/api/oauth2/authorize?client_id=434432973362954241&permissions=8&scope=bot")
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    embed.set_footer(text="v1.0.0 - @Austin Leath#0519")
     await bot.say(embed=embed)
     print("A user has issued the command !invite")
 
@@ -89,7 +89,7 @@ async def invite(ctx):
 async def app(ctx):
     embed = discord.Embed(title="Get the R6RC desktop app!", color=0x00fff00)
     embed.add_field(name="Link", value="https://electronjs.org/apps/r6rc")
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    embed.set_footer(text="v1.0.0 - @Austin Leath#0519")
     await bot.say(embed=embed)
     print("A user has issued the command !app")
 
@@ -97,7 +97,7 @@ async def app(ctx):
 async def twitter(ctx):
     embed = discord.Embed(title="Follow R6RC on Twitter!", color=0x00fff00)
     embed.add_field(name="Link", value="https://twitter.com/R6RankCalc")
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    embed.set_footer(text="v1.0.0 - @Austin Leath#0519")
     await bot.say(embed=embed)
     print("A user has issued the command !twitter")
 
@@ -105,7 +105,7 @@ async def twitter(ctx):
 async def website(ctx):
     embed = discord.Embed(title="Visit the R6RC website!", color=0x00fff00)
     embed.add_field(name="Link", value="https://r6rc.com")
-    embed.set_footer(text="v1.0.0 - @Game-King#0519")
+    embed.set_footer(text="v1.0.0 - @Austin Leath#0519")
     await bot.say(embed=embed)
     print("A user has issued the command !website")
 
@@ -173,7 +173,7 @@ async def calc(ctx, arg1, arg2, arg3):
         embed.add_field(name='ELO', value=str(elo), inline=True)
         embed.add_field(name='GOAL', value=str(goal), inline=True)
         embed.add_field(name='Result', value=winorlose + final + matchcount +'to reach your goal', inline=False)
-        embed.set_footer(text="v1.0.0 - @Game-King#0519")
+        embed.set_footer(text="v1.0.0 - @Austin Leath#0519")
         await bot.say(embed=embed)
         print("A user has issued the command !calc")
 
