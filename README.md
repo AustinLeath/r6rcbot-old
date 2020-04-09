@@ -1,5 +1,5 @@
 # R6RCBOT
-[![HitCount](http://hits.dwyl.io/austinleath/r6rcbot.svg)](http://hits.dwyl.io/austinleath/r6rcbot)
+[![HitCount](http://hits.dwyl.io/austinleath/r6rcbot-old.svg)](http://hits.dwyl.io/austinleath/r6rcbot-old)
 
 # Requirements
 **From the command line:**
@@ -14,7 +14,7 @@
 **From the command line:**
 ```bash
 # Clone this repository
-git clone https://github.com/austinleath/r6rcbot
+git clone https://github.com/austinleath/r6rcbot-old
 # Then you can run the following command
 python3 bot.py
 ```
